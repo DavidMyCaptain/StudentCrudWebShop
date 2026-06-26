@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\StudentCrudWebShop.csproj": {}
+    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\StudentCrudWebShop.csproj": {
+    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\StudentCrudWebShop.csproj",
-        "projectName": "StudentCrudWebShop",
-        "projectPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\StudentCrudWebShop.csproj",
+        "projectUniqueName": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Backend.csproj",
+        "projectName": "Backend",
+        "projectPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\obj\\",
+        "outputPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
