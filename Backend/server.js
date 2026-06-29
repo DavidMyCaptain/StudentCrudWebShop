@@ -5,11 +5,11 @@ const app = express();
 app.use(express.json());
 
 let users = [
-  { id: 1, name: 'Cookies', Image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png', link: "https://en.wikipedia.org/wiki/Cookie" },
-  { id: 2, name: 'warship', Image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Uss_iowa_bb-61_pr.jpg/1280px-Uss_iowa_bb-61_pr.jpg', link:"https://en.wikipedia.org/wiki/Gun" },
-  { id: 3, name: 'gun', Image: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Glock_17_%286825676904%29_%D0%B1%D0%B5%D0%B7_%D1%84%D0%BE%D0%BD%D0%B0.jpg', link:"https://en.wikipedia.org/wiki/1911" },
-  { id: 4, name: 'stool', Image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/TabouretAFDB.jpg', link: "https://en.wikipedia.org/wiki/movie" },
-  { id: 5, name: 'chair', Image: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Plastic_Tuinstoel.jpg', link: "https://en.wikipedia.org/wiki/Placeholder" },
+  { id: 1, name: 'Cookies', Image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png', link: "http://127.0.0.1:5500/frontend/product/product.html?ID=1" },
+  { id: 2, name: 'warship', Image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Uss_iowa_bb-61_pr.jpg/1280px-Uss_iowa_bb-61_pr.jpg', link:"http://127.0.0.1:5500/frontend/product/product.html?ID=2" },
+  { id: 3, name: 'gun', Image: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Glock_17_%286825676904%29_%D0%B1%D0%B5%D0%B7_%D1%84%D0%BE%D0%BD%D0%B0.jpg', link:"http://127.0.0.1:5500/frontend/product/product.html?ID=3" },
+  { id: 4, name: 'stool', Image: 'https://upload.wikimedia.org/wikipedia/commons/5/56/TabouretAFDB.jpg', link: "http://127.0.0.1:5500/frontend/product/product.html?ID=4" },
+  { id: 5, name: 'chair', Image: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/Plastic_Tuinstoel.jpg', link: "http://127.0.0.1:5500/frontend/product/product.html?ID=5" },
 ];
 
 // GET - Retrieve all users
