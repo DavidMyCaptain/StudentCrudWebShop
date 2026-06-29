@@ -18,15 +18,19 @@ request.onload = function () {
         const card = document.createElement('div')
         const h1 = document.createElement('h1')
         const img = document.createElement('img')
+        const a = document.createElement('a')
 
         container.setAttribute('class', 'container');
         card.setAttribute('class', 'card');
 
         h1.textContent = product.name
         img.src = product.Image  
+        a.href = product.link
+        var Link_text = document.createTextNode('PlaceHolder');
 
-        console.log(img)
-        
+        a.appendChild(Link_text)
+        console.log(a)
+        card.appendChild(a)
         card.appendChild(h1)
         card.appendChild(img)
         container.appendChild(card)

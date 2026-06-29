@@ -24,24 +24,35 @@ h1{
 }
 
 .card{
+    position: relative;
     margin: 1rem;
     background: white;
     box-shadow: 2px 4px 24 px tgba(0,0,0,.1);
     border-radius: 12px;
     overflow: hidden;
     transition: all, .2s linear;
-    
 }
 .card:hover{
     box-shadow: 2px, 8px 45px rgba(0,0,0,-15);
     transform: translate3d(0,-2px,0);
 }
+.container{
+    columns: 3;
+}
 img{
     width: 15%;
     height: auto;
+    
     display: block;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
-    transition: all, .2s linear;
+    transition: all, .2s linear; 
+}
+a{
+  background-color: transparent;
+  color: transparent;
+  position: absolute;
+  width: 100%;
+  height:100%;
 }
