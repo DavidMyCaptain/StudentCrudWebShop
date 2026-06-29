@@ -10,7 +10,7 @@ let users = [
 ];
 
 // GET - Retrieve all users
-app.get('/api/users', (req, res) => {
+app.get('/api/products', (req, res) => {
   res.set('Access-Control-Allow-Origin', '*');
     res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -24,14 +24,14 @@ app.get('/api/users', (req, res) => {
 
 
 // GET - Retrieve a specific user
-app.get('/api/users/:id', (req, res) => {
+app.get('/api/products/:id', (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id));
   if (!user) return res.status(404).json({ message: 'User not found' });
   res.json(user);
 });
 
 // POST - Create a new user
-app.post('/api/users', (req, res) => {
+app.post('/api/products', (req, res) => {
   const newUser = {
     id: users.length + 1,
     name: req.body.name,
@@ -42,7 +42,7 @@ app.post('/api/users', (req, res) => {
 });
 
 // PUT - Update a user completely
-app.put('/api/users/:id', (req, res) => {
+app.put('/api/products/:id', (req, res) => {
   const user = users.find(u => u.id === parseInt(req.params.id));
   if (!user) return res.status(404).json({ message: 'User not found' });
 
@@ -53,7 +53,7 @@ app.put('/api/users/:id', (req, res) => {
 });
 
 // DELETE - Remove a user
-app.delete('/api/users/:id', (req, res) => {
+app.delete('/api/products/:id', (req, res) => {
   const userIndex = users.findIndex(u => u.id === parseInt(req.params.id));
   if (userIndex === -1) return res.status(404).json({ message: 'User not found' });
 
