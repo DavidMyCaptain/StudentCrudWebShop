@@ -17,16 +17,18 @@ request.onload = function () {
 
         const card = document.createElement('div')
         const h1 = document.createElement('h1')
+        const img = document.createElement('img')
 
         container.setAttribute('class', 'container');
         card.setAttribute('class', 'card');
 
         h1.textContent = product.name
+        img.src = product.Image  
 
-
-        
+        console.log(img)
         
         card.appendChild(h1)
+        card.appendChild(img)
         container.appendChild(card)
 
 

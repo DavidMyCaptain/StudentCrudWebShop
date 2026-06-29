@@ -5,8 +5,8 @@ const app = express();
 app.use(express.json());
 
 let users = [
-  { id: 1, name: 'John Doe', email: 'john@example.com' },
-  { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
+  { id: 1, name: 'Cookies', Image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Choco_chip_cookie.png' },
+  { id: 2, name: 'gun', Image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Uss_iowa_bb-61_pr.jpg/1280px-Uss_iowa_bb-61_pr.jpg' }
 ];
 
 // GET - Retrieve all users

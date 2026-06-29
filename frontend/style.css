@@ -36,3 +36,12 @@ h1{
     box-shadow: 2px, 8px 45px rgba(0,0,0,-15);
     transform: translate3d(0,-2px,0);
 }
+img{
+    width: 15%;
+    height: auto;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: all, .2s linear;
+}
