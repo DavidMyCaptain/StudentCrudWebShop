@@ -36,9 +36,7 @@ h1{
     box-shadow: 2px, 8px 45px rgba(0,0,0,-15);
     transform: translate3d(0,-2px,0);
 }
-.container{
-    columns: 3;
-}
+
 img{
     width: 15%;
     height: auto;
