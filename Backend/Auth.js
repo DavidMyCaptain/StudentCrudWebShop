@@ -31,7 +31,6 @@ app.use(cors(corsOptions));
 
 // Route to login and issue a JWT token
 app.post('/api/login', (req, res) => {
-  console.log("maybe?");
   console.log(req.body);
 
   const { username, password } = req.body;
@@ -48,7 +47,7 @@ app.post('/api/login', (req, res) => {
 
 
 // Protected route, accessible only with a valid JWT (Bearer token)
-app.get('/protected', jwtMiddleware, (req, res) => {
+app.get('/api/protected', jwtMiddleware, (req, res) => {
   res.send('This is a protected route. You are authenticated with a Bearer token!');
   
 });
