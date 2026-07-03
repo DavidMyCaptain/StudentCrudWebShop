@@ -49,8 +49,23 @@ app.post('/api/login', (req, res) => {
 // Protected route, accessible only with a valid JWT (Bearer token)
 app.get('/api/protected', jwtMiddleware, (req, res) => {
   res.send('This is a protected route. You are authenticated with a Bearer token!');
+  var payload =return_user_from_token(req.headers.authorization);
+  console.log("this user has a valid token: " + payload.username);
   
 });
+
+function return_user_from_token(usertoken){
+  const parts = usertoken.split('.');
+  const payloadEncoded = parts[1];
+  return JSON.parse(decodeBase64Url(payloadEncoded));
+}
+
+const decodeBase64Url = (base64Url) => {
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  return decodeURIComponent(atob(base64).split('').map((c) => {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+};
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

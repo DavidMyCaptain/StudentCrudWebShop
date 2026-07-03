@@ -1,34 +1,31 @@
 var attempt_username;
-function Login() {
+var token;
+async function Login() {
   attempt_username =document.getElementById("Username").value;
   attempt_password =document.getElementById("password").value;
-  Login_Attempt();
+
+Get_Login_token().then(
+function(value){
+    window.location.replace('http://127.0.0.1:5500/frontend/Admin_priv/Product_CRUD/Product_Crud.html'+"?Token="+value)
+}
+);
 }
 
-function Login_Attempt(){
-var token;
-fetch('http://localhost:3001/api/login', 
+
+async function Get_Login_token(){
+let response = await fetch('http://localhost:3001/api/login', 
 {   
 method: 'POST', 
 mode: 'cors',  
 headers: {'Content-Type': 'application/json'},   
 body: JSON.stringify({ username: attempt_username, password: attempt_password }) 
-}).then(resp => resp.json())
-   .then(json => {token = json.token;
-    console.log(token);
-    protected();
+})/*.then(resp => resp.json())
+   .then(json => {token = json.token
+    return (json.token);
    })
-   .catch(err => console.error(err));
+   .catch(err => console.error(err));*/
+   let data = await response.json();
+   token = await data.token;
+   return (token);
 
-function protected(){
-fetch('http://localhost:3001/api/protected', {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
-})
-  .then(resp => resp.text())
-  .then(data => console.log(data))
-  .catch(err => console.error(err));
-}
 }
