@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Program\\Program.csproj": {}
+    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\program\\Program.csproj": {}
   },
   "projects": {
-    "c:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Program\\Program.csproj": {
+    "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\program\\Program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Program\\Program.csproj",
+        "projectUniqueName": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\program\\Program.csproj",
         "projectName": "Program",
-        "projectPath": "c:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Program\\Program.csproj",
+        "projectPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\program\\Program.csproj",
         "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\Program\\obj\\",
+        "outputPath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\Backend\\program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"
