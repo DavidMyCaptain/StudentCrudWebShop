@@ -7,7 +7,7 @@ const container = document.createElement('div');
 app.appendChild(container)
     
 
-request.open('GET', 'http://localhost:3000/api/products', true)
+request.open('GET', 'http://127.0.0.1:3000/API/products', true)
 
 request.onload = function () {
     if (request.status >= 200 && request.status < 400) {
@@ -24,8 +24,8 @@ request.onload = function () {
         card.setAttribute('class', 'card');
 
         h1.textContent = product.name
-        img.src = product.Image  
-        a.href = product.link
+        img.src = product.link 
+        a.href = product.src
         var Link_text = document.createTextNode('PlaceHolder');
 
         a.appendChild(Link_text)

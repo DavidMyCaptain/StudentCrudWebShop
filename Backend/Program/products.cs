@@ -6,7 +6,19 @@ namespace API{
             
             public static void Start()
         {
+            var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
             var builder = WebApplication.CreateBuilder();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                policy  =>
+                                {
+                                    policy.AllowAnyOrigin()
+                                          .AllowAnyHeader()
+                                          .AllowAnyMethod();                                });
+            });
+
 
             // Add services to the container.
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -22,9 +34,10 @@ namespace API{
 
             app.UseHttpsRedirection();
 
-            
+            app.UseCors(MyAllowSpecificOrigins);
 
-            app.MapGet("/API/products", () => Products.Get());
+            const int amount_entries = 5;
+            app.MapGet("/API/products", () => Products.get(amount_entries));
            
             app.Run();
 
