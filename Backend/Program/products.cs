@@ -1,10 +1,10 @@
 using API;
 namespace API{
     
-        public class Products_api
+        public static class Products_api
     {
             
-            public static void Start()
+            public static void Start_api()
         {
             var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 

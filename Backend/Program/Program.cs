@@ -1,4 +1,5 @@
 using API;
+using Database;
 
 namespace API
 {
@@ -6,7 +7,7 @@ namespace API
     {
         static void Main()
         {
-            Products_api.Start();
+            Products_api.Start_api();
         }
     }
 }

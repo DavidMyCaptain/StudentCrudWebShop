@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "+2754lV3Ce8=",
+  "dgSpecHash": "v4IL05sWYnc=",
   "success": true,
   "projectFilePath": "C:\\Users\\David\\Desktop\\webshop\\StudentCrudWebShop\\backend\\Program\\Program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.10\\microsoft.aspnetcore.openapi.10.0.10.nupkg.sha512",
-    "C:\\Users\\David\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\npgsql\\10.0.3\\npgsql.10.0.3.nupkg.sha512"
   ],
   "logs": [
     {
