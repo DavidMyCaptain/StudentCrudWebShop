@@ -1,13 +1,14 @@
 using API;
+using auth;
 using Database;
 
 namespace API
 {
     class Program
     {
-        static void Main()
+        static async Task Main()
         {
-            Products_api.Start_api();
+            Api.Start_api();
         }
     }
 }

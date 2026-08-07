@@ -13,17 +13,13 @@ function(value){
 
 
 async function Get_Login_token(){
-let response = await fetch('http://localhost:3001/api/login', 
+let response = await fetch('http://localhost:3000/API/login', 
 {   
 method: 'POST', 
 mode: 'cors',  
 headers: {'Content-Type': 'application/json'},   
 body: JSON.stringify({ username: attempt_username, password: attempt_password }) 
-})/*.then(resp => resp.json())
-   .then(json => {token = json.token
-    return (json.token);
-   })
-   .catch(err => console.error(err));*/
+})
    let data = await response.json();
    token = await data.token;
    return (token);
