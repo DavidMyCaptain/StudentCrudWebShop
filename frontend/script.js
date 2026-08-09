@@ -25,7 +25,7 @@ request.onload = function () {
 
         h1.textContent = product.name
         img.src = product.link 
-        a.href = "http://127.0.0.1:5500/StudentCrudWebShop/frontend/product/product.html/" + product.id
+        a.href = "http://127.0.0.1:5500/StudentCrudWebShop/frontend/product/product.html?ID=" + product.id
         var Link_text = document.createTextNode('PlaceHolder');
 
         a.appendChild(Link_text)

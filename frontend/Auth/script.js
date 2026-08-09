@@ -6,7 +6,7 @@ async function Login() {
 
 Get_Login_token().then(
 function(value){
-    window.location.replace('http://127.0.0.1:5500/frontend/Admin_priv/Product_CRUD/Product_Crud.html'+"?Token="+value)
+    window.location.replace('http://127.0.0.1:5500/StudentCrudWebShop/frontend/Admin_priv/Product_CRUD/Product_Crud.html'+"?Token="+value)
 }
 );
 }

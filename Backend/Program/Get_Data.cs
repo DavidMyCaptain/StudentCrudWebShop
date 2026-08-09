@@ -30,6 +30,7 @@ namespace API
 
             DatabaseInterface database_instance = new DatabaseInterface();
             The_Product = database_instance.get_product(id);
+            
             return The_Product;
         }
         
@@ -46,4 +47,5 @@ public class SingularProduct
             public int Price { get; set; }
             public string Name { get; set; }
             public string Link { get; set; }
+            public string Desctiption { get; set; }
         }

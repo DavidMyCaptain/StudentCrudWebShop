@@ -21,7 +21,8 @@ request.onload = function () {
         card.setAttribute('class', 'card');
 
         h1.textContent = product.name
-        img.src = product.Image  
+        img.src = product.link 
+
 
 
         card.appendChild(h1)

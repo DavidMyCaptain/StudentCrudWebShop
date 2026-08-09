@@ -22,32 +22,42 @@ public class DatabaseInterface{
                 data_Product.Price = reader.GetInt32(1);
                 data_Product.Name = reader.GetString(2);
                 data_Product.Link = reader.GetString(3);
+                data_Product.Desctiption = reader.GetString(4);
             }
             return data_Product;
             
         }
-        public string[] Authentication(string Username, string Password)
+        public void post_product(string ProductName, string ProductValue, string ProductLink, string ProductId, string ProductDescription)
         {
 
             var connectionString = "Host=localhost;Port=5501;Username=postgres;Password=Datait2026!;Database=WebShop;";
             using var dataSource = NpgsqlDataSource.Create(connectionString);
             
-            var command = dataSource.CreateCommand("SELECT * from Auth where Username = '" + Username+"'");
+            var command = dataSource.CreateCommand("INSERT INTO Product (Productid,ProductPrice, ProductName, ProductLink, ProductDescription)VALUES ("+ProductId+","+ ProductValue+",'"+ProductName+"','"+ProductLink + "','"+ProductDescription +"');");
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                Console.WriteLine(reader.GetString(0));
+            }
+            
+        }
+        public string Authentication(string Username, string Password)
+        {
+
+            var connectionString = "Host=localhost;Port=5501;Username=postgres;Password=Datait2026!;Database=WebShop;";
+            using var dataSource = NpgsqlDataSource.Create(connectionString);
+            
+            var command = dataSource.CreateCommand("SELECT Auth_level from Auth where Username = '" + Username+"'");
             var reader = command.ExecuteReader();
 
-            string[] str = new string[3];
+            string[] str = new string[1];
             while (reader.Read())
             {
                 Console.WriteLine(reader.GetString(0));
             str[0] = reader.GetString(0);
-                Console.WriteLine(reader.GetString(1));
-            str[1] = reader.GetString(1);
-                Console.WriteLine(reader.GetString(2));
-            str[2] = reader.GetString(2);
-            Console.WriteLine(str);
             }
 
-            return str;
+            return str[0];
             
         }
 

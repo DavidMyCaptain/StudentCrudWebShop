@@ -5,24 +5,22 @@ using System.Security.Claims;
 using Database;
 
 
+
 namespace auth
 {
-    public class Auth
+    public static class Auth
     {
         private static string secretKey = "your_super_secret_key_with_at_least_256_bits_for_security";
         private static readonly SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
         private static readonly SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        private readonly  List<Claim>claims = new List<Claim>
+        public static string GenerateJwtToken(string username, string auth_level){
+
+            List<Claim>claims = new List<Claim>
             {
-                new Claim(JwtRegisteredClaimNames.Sub, "user123"),      // Subject (User ID)
-                new Claim(JwtRegisteredClaimNames.Email, "user@example.com"),
-                new Claim(JwtRegisteredClaimNames.Name, "John Doe"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // Unique token ID
-                new Claim("role", "admin"),                              // Custom claims
-                new Claim("permission", "read"),
-                new Claim("permission", "write")
+                new Claim("User", username), 
+                new Claim("Auth_level", auth_level)                              // Custom claims
+
             };
-        public string GenerateJwtToken(){
 
             var token = new JwtSecurityToken(
             claims: claims,
@@ -35,7 +33,7 @@ namespace auth
             return tokenString;
             }
         
-            void ReadJwtToken(string tokenString)
+            public static void ReadJwtToken(string tokenString)
             {
                 var handler = new JwtSecurityTokenHandler();
                 var token = handler.ReadJwtToken(tokenString);
@@ -52,15 +50,72 @@ namespace auth
                 {
                     Console.WriteLine($"{claim.Type}: {claim.Value}");
                 }
+                
+                //return();
             }
-            public void Start()
+            private static bool ValidateTokenPayLoad(string tokenString){
+                var handler = new JwtSecurityTokenHandler();
+                var token = handler.ReadJwtToken(tokenString);
+                string Claimed_Auth = "no_claim";
+                string Claimed_Username = "Claimed_Username";
+                foreach (var claim in token.Claims)
+                {
+                    if(claim.Type == "Auth_level")
+                    {
+                        Claimed_Auth = claim.Value;
+                    }
+                    if(claim.Type == "User")
+                    {
+                        Claimed_Username = claim.Value;
+                    }                   
+                }
+                List<Claim>claims = new List<Claim>
+                {
+                // Unique token ID
+                    new Claim("User", Claimed_Username), 
+                    new Claim("Auth_level", Claimed_Auth)                              // Custom claims
+                };
+
+                var Claimed_token = new JwtSecurityToken(
+                claims: claims,
+                notBefore: token.ValidFrom,
+                expires: token.ValidTo,    // 1 hour expiration
+                signingCredentials: credentials
+                );
+
+                var New_handler = new JwtSecurityTokenHandler();
+                string ClaimedtokenString = New_handler.WriteToken(Claimed_token);
+                
+                return ClaimedtokenString==tokenString;
+                
+            }
+            
+            public static bool PrivledgeCheck(string tokenString, string auth_level)
             {
-            string token = GenerateJwtToken();
-            Console.WriteLine("Generated Token:");
-            Console.WriteLine(token);
-            // Read and display
-            ReadJwtToken(token);
+                var handler = new JwtSecurityTokenHandler();
+                var token = handler.ReadJwtToken(tokenString);
+               
+                string Claimed_Auth = "No_Privledge";
+                foreach (var claim in token.Claims)
+                {
+                    if(claim.Type == "Auth_level")
+                    {
+                        Claimed_Auth = claim.Value;
+                    }                   
+                }
+
+            
+            Console.WriteLine("time is" + DateTime.UtcNow);
+            if(auth_level ==  Claimed_Auth && token.ValidTo > DateTime.UtcNow && ValidateTokenPayLoad(tokenString))
+            {
+                
+                Console.WriteLine(ValidateTokenPayLoad(tokenString)+ "The privldged go checked");
+                return true;
+            } else{
+                Console.WriteLine("false");
+                return false;
             }
-        
+            }
+
     }
 }
